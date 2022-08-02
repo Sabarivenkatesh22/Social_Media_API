@@ -49,7 +49,7 @@ def get_current_user(token: str = Depends(OAuth2PasswordBearer(tokenUrl='')), db
                                           detail=f"Could not validate credentials", headers={"WWW-Authenticate": "Bearer"})
 
     print(token) ## accessing token data from the headers
-    print(token)
+    # print(token)
     token = verify_access_token(token, credentials_exception)
 
     user = db.query(models.User).filter(models.User.id == token.id).first()
